@@ -1,0 +1,29 @@
+.main-card {
+    max-width: 700px;
+    margin: 20px;
+}
+.btn-death {
+    background-color: gray;
+    color: white;
+}
+.mat-card-content {
+    text-align: center;
+}
+.head-center {
+    text-align: center;
+    display: contents;
+}
+.header {
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    margin: 30px;
+}
+.increased-value {
+    float: right;
+    display: inline-table;
+}
+table {
+    width: 100%;
+  }
+  

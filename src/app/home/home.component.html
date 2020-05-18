@@ -1,0 +1,94 @@
+<h1 class="header">Covid-19 Status</h1>
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="mat-card" class="btn-danger main-card">
+            <mat-card-header class="head-center">
+                <div mat-card-avatar class="increased-value">{{confirmIncrease}}</div>
+                <mat-card-title>Confirmed</mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content>
+                {{confirmed}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="mat-card" class="btn-info main-card">
+            <mat-card-header class="head-center">
+                <div mat-card-avatar class="increased-value">{{activeIncrease}}</div>
+                <mat-card-title>Active</mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content>
+                {{active}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="mat-card" class="btn-success main-card">
+            <mat-card-header class="head-center">
+                <div mat-card-avatar class="increased-value">{{recoverIncrease}}</div>
+                <mat-card-title>Recovered</mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content>
+                {{recovered}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="mat-card" class="btn-death main-card">
+            <mat-card-header class="head-center">
+                <div mat-card-avatar class="increased-value">{{deathIncrease}}</div>
+                <mat-card-title>Deceased</mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content>
+                {{death}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="confirmed">
+      <th mat-header-cell *matHeaderCellDef> Confirmed </th>
+      <td mat-cell *matCellDef="let element"> {{element.confirmed}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef> Active </th>
+      <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="recover">
+      <th mat-header-cell *matHeaderCellDef> Recovered </th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <button mat-icon-button color="primary" (click)="redirectToDetails(element.id)">
+            <mat-icon class="mat-18">reorder</mat-icon>
+        </button> -->
+        {{element.recover}}
+      </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="death">
+        <th mat-header-cell *matHeaderCellDef> Deceased </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
+              <mat-icon class="mat-18">system_update</mat-icon>
+          </button> -->
+          {{element.death}}
+        </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<app-loader [showLoader] = "loader"></app-loader>
